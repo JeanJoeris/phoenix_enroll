@@ -5,9 +5,11 @@ defmodule DbExperiment.UserSocket do
   # channel "room:*", DbExperiment.RoomChannel
 
   ## Transports
-  transport :websocket, Phoenix.Transports.WebSocket
+  # transport :websocket, Phoenix.Transports.WebSocket
   # transport :longpoll, Phoenix.Transports.LongPoll
 
+  transport :websocket, Phoenix.Transports.WebSocket,
+  timeout: 45_000
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
   # verification, you can put default assigns into
@@ -22,6 +24,7 @@ defmodule DbExperiment.UserSocket do
   def connect(_params, socket) do
     {:ok, socket}
   end
+
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
