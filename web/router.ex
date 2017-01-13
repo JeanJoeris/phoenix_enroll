@@ -19,6 +19,7 @@ defmodule DbExperiment.Router do
     get "/", PageController, :index
   end
 
+  # Other scopes may use custom stacks.
   scope "/api/v1", DbExperiment do
     pipe_through :api
 
