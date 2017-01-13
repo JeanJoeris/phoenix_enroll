@@ -20,7 +20,9 @@ defmodule DbExperiment.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", DbExperiment do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", DbExperiment do
+    pipe_through :api
+
+    resources "/cohorts/upcoming", DashboardController, only: [:index]
+  end
 end
